@@ -6,9 +6,9 @@ import { getTotalBasketCount, getTotalBasketPrice } from "../selectors/Foods";
 export const BasketCart = props => {
   // console.log("Props passed are ", props);
   const { totalBasketCount, totalPrice } = props;
-  let str = <span>{totalBasketCount} item(s) - {totalPrice}$</span>;
+  let str = <span>{totalBasketCount} item(s) - {totalPrice}đ</span>;
   if ((totalBasketCount == 0)) {
-    str = "";
+    str = "Empty";
   }
   return (
     <div className="cart">
@@ -18,7 +18,7 @@ export const BasketCart = props => {
           id="dLabel"
           className="btn btn-inverse btn-block btn-large"
         >
-          <i className="fa fa-fa-shopping-cart" />
+          <i className="emty-cart" />
           {str}
         </Link>
       </div>

@@ -15,9 +15,10 @@ export const fetchFoods = async () => {
 };
 
 export const loadMore = async ({ offset }) => {
-  return new Promise(resolve => {
-    resolve(foods);
-  });
+    const { body } = await request.get(
+        "http://localhost:3000/product"
+    );
+    return body;
 };
 
 export const fetchFoodById = async id => {

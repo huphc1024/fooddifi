@@ -3,15 +3,34 @@ import {fetchFoods as fetchFoodsApi,
         fetchFoodById as fetchFoodByIdApi,
         fetchCategories  as fetchCategoriesApi}  from '../api/fetchFoods';
 import {getRenderedFoodsLength} from '../selectors/Foods';
+import food from "../reducers/food";
+
+const compare = {
+    'lowestprice': (a, b) => {
+        if (a.price < b.price)
+            return -1;
+        if (a.price > b.price)
+            return 1;
+        return 0;
+    },
+    'highestprice': (a, b) => {
+        if (a.price > b.price)
+            return -1;
+        if (a.price < b.price)
+            return 1;
+        return 0;
+    }
+}
 
 export const fetchFoods = ()=>{
-    
+
     return async (dispatch) => {
         try{
             dispatch({
                 type: 'FETCH_FOOD_START'
             });
             const foods = await fetchFoodsApi();
+
             dispatch({
                 type: 'FETCH_FOOD_SUCCESS',
                 payload: foods

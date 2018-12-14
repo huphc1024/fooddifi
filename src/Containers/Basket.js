@@ -55,7 +55,7 @@ const Basket = ({
         {R.not(isBasketEmpty) && (
           <div className="row">
             <div className="pull-right total-user-checkout">
-              <b>Total:</b>${totalPrice}
+              <b>Total:</b>{totalPrice}đ
             </div>
           </div>
         )}

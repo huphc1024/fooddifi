@@ -19,6 +19,8 @@ export default (state=foodInitialState, action)=>{
         {
             return R.assoc(action.payload.id,action.payload,state);
         }
+        // case 'FETCH_FOOD_SORT_SUCCESS' :
+        //     return
         default:
             return state;
     }};
